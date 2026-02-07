@@ -18,6 +18,15 @@ A RESTful API built with ASP.NET Core 8.0 for tracking lottery drawings and prov
 - MySQL Server 5.7+ or MariaDB 10.3+
 - A code editor (Visual Studio, VS Code, Rider, etc.)
 
+## 🔒 Security Note
+
+**Never commit sensitive credentials to Git!** This project uses:
+- User Secrets for development
+- Environment variables for production
+- `.gitignore` to protect configuration files
+
+See [SECURITY-SETUP.md](SECURITY-SETUP.md) for detailed security configuration.
+
 ## Installation
 
 1. **Clone the repository**
@@ -29,14 +38,26 @@ A RESTful API built with ASP.NET Core 8.0 for tracking lottery drawings and prov
 
 2. **Configure the database connection**
 
-   Update the connection string in `appsettings.json`:
+   **Option A: Using User Secrets (Recommended for Development)**
+   ```bash
+   dotnet user-secrets init
+   dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost;Port=3306;Database=lottery_db;Uid=your_user;Pwd=your_password;"
+   ```
 
+   **Option B: Using appsettings.Development.json (Not committed to Git)**
+   
+   Copy `appsettings.Example.json` to `appsettings.Development.json` and update with your credentials:
    ```json
    {
      "ConnectionStrings": {
        "DefaultConnection": "Server=localhost;Port=3306;Database=lottery_db;Uid=your_user;Pwd=your_password;"
      }
    }
+   ```
+
+   **Option C: Using Environment Variables**
+   ```powershell
+   $env:ConnectionStrings__DefaultConnection="Server=localhost;Port=3306;Database=lottery_db;Uid=your_user;Pwd=your_password;"
    ```
 
 3. **Apply database migrations**
