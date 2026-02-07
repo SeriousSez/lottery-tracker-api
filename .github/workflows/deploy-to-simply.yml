@@ -27,7 +27,6 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Generate production appsettings from secrets
-        working-directory: ./LotteryTracker.API
         shell: pwsh
         env:
           MYSQL_CONNECTION_STRING: ${{ secrets.MYSQL_CONNECTION_STRING }}
