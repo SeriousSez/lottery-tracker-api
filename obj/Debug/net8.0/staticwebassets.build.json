@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gj60h0SSXEl92Nuk2RYz6LttRq1bbXm5oP3XnouOFQQ=",
+  "Source": "LotteryTracker.API",
+  "BasePath": "_content/LotteryTracker.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
