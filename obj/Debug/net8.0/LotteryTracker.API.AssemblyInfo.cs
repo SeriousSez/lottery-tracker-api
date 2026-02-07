@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LotteryTracker.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0afd828bde8dd0c1f08fba1295ed69bc4a5e4312")]
 [assembly: System.Reflection.AssemblyProductAttribute("LotteryTracker.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LotteryTracker.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
