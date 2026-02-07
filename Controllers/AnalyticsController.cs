@@ -26,7 +26,6 @@ public class AnalyticsController : ControllerBase
     {
         try
         {
-            Console.WriteLine("Calculating number frequencies...");
             var frequencies = _analysisService.CalculateNumberFrequencies();
             return Ok(frequencies);
         }
