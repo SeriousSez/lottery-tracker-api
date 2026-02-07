@@ -21,14 +21,16 @@ A RESTful API built with ASP.NET Core 8.0 for tracking lottery drawings and prov
 ## Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd LotteryTracker.API
    ```
 
 2. **Configure the database connection**
-   
+
    Update the connection string in `appsettings.json`:
+
    ```json
    {
      "ConnectionStrings": {
@@ -38,11 +40,13 @@ A RESTful API built with ASP.NET Core 8.0 for tracking lottery drawings and prov
    ```
 
 3. **Apply database migrations**
+
    ```bash
    dotnet ef database update
    ```
 
 4. **Run the application**
+
    ```bash
    dotnet run
    ```
@@ -57,15 +61,19 @@ A RESTful API built with ASP.NET Core 8.0 for tracking lottery drawings and prov
 ### Drawings Controller
 
 #### Get All Drawings
+
 ```http
 GET /api/drawings?limit=100
 ```
+
 Retrieves lottery drawings ordered by date (most recent first).
 
 **Query Parameters:**
+
 - `limit` (optional, default: 100) - Number of drawings to retrieve
 
 **Response:**
+
 ```json
 [
   {
@@ -79,34 +87,43 @@ Retrieves lottery drawings ordered by date (most recent first).
 ```
 
 #### Get Drawing by ID
+
 ```http
 GET /api/drawings/{id}
 ```
 
 #### Scrape Latest Drawings
+
 ```http
 POST /api/drawings/scrape
 ```
+
 Fetches the latest lottery drawings from the source and stores them in the database.
 
 **Query Parameters:**
+
 - `count` (optional, default: 10) - Number of recent drawings to fetch
 
 #### Get Latest Drawing
+
 ```http
 GET /api/drawings/latest
 ```
+
 Returns the most recent lottery drawing.
 
 ### Analytics Controller
 
 #### Get Number Frequencies
+
 ```http
 GET /api/analytics/frequencies
 ```
+
 Returns frequency count for all lottery numbers.
 
 **Response:**
+
 ```json
 [
   {
@@ -118,47 +135,61 @@ Returns frequency count for all lottery numbers.
 ```
 
 #### Get Hot Numbers
+
 ```http
 GET /api/analytics/frequencies/hot?count=10
 ```
+
 Returns the most frequently drawn numbers.
 
 **Query Parameters:**
+
 - `count` (optional, default: 10) - Number of hot numbers to return
 
 #### Get Cold Numbers
+
 ```http
 GET /api/analytics/frequencies/cold?count=10
 ```
+
 Returns the least frequently drawn numbers.
 
 **Query Parameters:**
+
 - `count` (optional, default: 10) - Number of cold numbers to return
 
 #### Get Consecutive Number Pairs
+
 ```http
 GET /api/analytics/consecutive-pairs
 ```
+
 Analyzes and returns consecutive number pairs that appear together.
 
 #### Get Number Pair Frequencies
+
 ```http
 GET /api/analytics/pairs?minCount=2
 ```
+
 Returns frequency of number pairs appearing together.
 
 **Query Parameters:**
+
 - `minCount` (optional, default: 2) - Minimum occurrence count
 
 #### Get Analysis Summary
+
 ```http
 GET /api/analytics/summary
 ```
+
 Returns a comprehensive statistical summary including hot/cold numbers, most common pairs, and overview statistics.
 
 ## Database Schema
 
 ### LotteryDrawing Table
+
 - `Id` (GUID) - Primary key
 - `DrawDate` (DateTime) - Date of the lottery drawing
 - `WinningNumbers` (JSON Array) - Array of winning numbers
@@ -177,17 +208,20 @@ Returns a comprehensive statistical summary including hot/cold numbers, most com
 ## Development
 
 ### Running in Development Mode
+
 ```bash
 dotnet run --environment Development
 ```
 
 ### Creating New Migrations
+
 ```bash
 dotnet ef migrations add MigrationName
 dotnet ef database update
 ```
 
 ### Running Tests
+
 ```bash
 dotnet test
 ```
@@ -215,7 +249,9 @@ LotteryTracker.API/
 ## Configuration
 
 ### Logging Levels
+
 Configure logging levels in `appsettings.json`:
+
 ```json
 {
   "Logging": {
@@ -228,6 +264,7 @@ Configure logging levels in `appsettings.json`:
 ```
 
 ### CORS Policy
+
 The API includes CORS support for frontend integration. Configure allowed origins in `Program.cs`.
 
 ## Contributing
